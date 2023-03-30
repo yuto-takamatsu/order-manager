@@ -73,7 +73,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @section('content')
+            <p>コンテンツ</p>
+            @show
         </main>
     </div>
 </body>
