@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/save/create_company','SaveController@create_company');
+
+Route::post('/save/create_company', 'SaveController@store');
