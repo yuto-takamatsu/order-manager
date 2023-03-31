@@ -21,5 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/save/create_company','SaveController@create_company');
+Route::get('/save/create_item','SaveController@create_item');
 
-Route::post('/save/create_company', 'SaveController@store');
+Route::post('/save/create_company', 'SaveController@store_company');
+Route::post('/save/create_item', 'SaveController@store_item');

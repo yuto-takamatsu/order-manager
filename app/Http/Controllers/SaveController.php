@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class SaveController extends Controller
@@ -12,7 +13,15 @@ class SaveController extends Controller
         return view('save.create_company');
     }
 
-    public function store(Request $req)
+    public function create_item()
+    {
+        $companies = Company::all();
+        return view('save.create_item',compact('companies'));
+
+    }
+
+
+    public function store_company(Request $req)
     {
         $this->validate($req,Company::$rules);
 
@@ -21,4 +30,21 @@ class SaveController extends Controller
         
         return redirect('save/create_company');
     }
+
+    public function select()
+    {
+    }
+
+    
+    public function store_item(Request $req)
+    {
+       
+        $this->validate($req,Item::$rules);
+
+        $b = new Item();
+        $b->fill($req->except('_token'))->save();
+        
+        return redirect('save/create_item');
+    }
+
 }

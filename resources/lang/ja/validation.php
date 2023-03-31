@@ -156,7 +156,10 @@ return [
     'attributes' => [
         'company_name' => '会社名',
         'phone_number' => '電話番号',
-        'address' => '住所'
+        'address' => '住所',
+        'item_name' => '品目名',
+        'order_week' => '注文曜日'
+
     ],
 
 ];

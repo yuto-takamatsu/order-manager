@@ -17,21 +17,29 @@
 
                     <form method="POST" action="/save/create_company">
                         @csrf
-                        <div class="pl-2">
-                            <label id="company_name">会社名</label></br>
-                            <input id="company_name"  name="company_name" type="text" size="30" value="{{ old('name') }}" />
+                        <p>
+                            <div class="pl-2">
+                                <label id="company_name">会社名</label></br>
+                                <input id="company_name"  name="company_name" type="text" size="30" value="{{ old('name') }}" />
+                            </div>
+                        </p>
+                        <p>
+                            <div class="pl-2">
+                                <label id="phone_number">電話番号</label></br>
+                                <input id="phone_number" name="phone_number" type="text" size="15" value="{{ old('phone_number') }}" />
                         </div>
-                        <div class="pl-2">
-                            <label id="phone_number">電話番号</label></br>
-                            <input id="phone_number" name="phone_number" type="text" size="15" value="{{ old('phone_number') }}" />
+                        </p>
+                        <p>
+                            <div class="pl-2">
+                                <label id="address">住所</label></br>
+                                <input id="address"  name="address" type="text" size="30" value="{{ old('address') }}" />
                         </div>
-                        <div class="pl-2">
-                            <label id="address">住所</label></br>
-                            <input id="address"  name="address" type="text" size="30" value="{{ old('address') }}" />
-                        </div>
-                        <div class="pl-2">
-                            <input type="submit" value="登録">
-                        </div>
+                        </p>
+                        <p>
+                            <div class="pl-2">
+                                <input type="submit" value="登録">
+                            </div>
+                        </p>
                     </form>
                 
                 </div>

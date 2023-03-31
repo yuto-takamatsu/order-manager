@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+    
     protected $fillable = ['company_name','phone_number','address'];
 
     public static $rules = [
