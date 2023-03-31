@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class SaveController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function create_company()
     {
         return view('save.create_company');
