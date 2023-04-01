@@ -72,7 +72,7 @@
                                 <td>{{ $item->order_week }}</td>
                                 <td>
                                     <a href="/save/{{ $item->id }}/edit_item">編集</a>
-                                    <a href="/save/{{ $item->id }}/delete">削除</a>
+                                    <a href="/save/{{ $item->id }}">削除</a>
                                 </td>
                             </tr>
                         </tbody>

@@ -74,4 +74,17 @@ class SaveController extends Controller
         return redirect('home');
     }
 
+    public function show($id)
+    {
+        $b = Item::findOrFail($id);
+        return view('save.show', compact('b'));
+    }
+
+    public function destroy($id)
+    {
+        $b = Item::findOrFail($id);
+        $b->delete();
+        return redirect('home');
+    }
+
 }
