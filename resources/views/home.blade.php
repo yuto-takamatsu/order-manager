@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('content')<div class="container">
+@section('content')
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,6 +70,10 @@
                                 <td>{{ $item->company_name}}</td>
                                 <td>{{ $item->company_phone_number }}</td>
                                 <td>{{ $item->order_week }}</td>
+                                <td>
+                                    <a href="/save/{{ $item->id }}/edit_item">編集</a>
+                                    <a href="/save/{{ $item->id }}/delete">削除</a>
+                                </td>
                             </tr>
                         </tbody>
                             

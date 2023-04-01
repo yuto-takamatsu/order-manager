@@ -37,10 +37,6 @@ class SaveController extends Controller
         return redirect('save/create_company');
     }
 
-    public function select()
-    {
-    }
-
     
     public function store_item(Request $req)
     {
@@ -51,6 +47,21 @@ class SaveController extends Controller
         $b->fill($req->except('_token'))->save();
         
         return redirect('save/create_item');
+    }
+
+    public function edit_item($id)
+    {
+        $companies = Company::all();
+        $b = Item::findOrFail($id);
+        return view('save.edit_item',compact('companies', 'b'));
+
+    }
+
+    public function update_item(Request $req, $id)
+    {
+        $b = Item::findOrFail($id);
+        $b->fill($req->except('_token','method'))->save();
+        return redirect('home');
     }
 
 }
