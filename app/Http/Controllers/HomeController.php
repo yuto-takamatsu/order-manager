@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $week = [
+            '日',
+            '月',
+            '火',
+            '水',
+            '木',
+            '金',
+            '土'
+        ];
+        $date = date('w');
+        $today = $week[$date];
+        $order_items = Item::where('order_week', $today)->get();
+
+        $items = Item::all();
+        return view('home', compact('order_items','items'));
     }
 }
