@@ -16,4 +16,9 @@ class Company extends Model
         'address' => 'required'
     ];
     use HasFactory;
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }

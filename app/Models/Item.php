@@ -16,4 +16,9 @@ class Item extends Model
     ];
 
     use HasFactory;
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }
