@@ -33,11 +33,11 @@
                         </p>
                         <p>
                             <div class="pl-4">
-                                    <label id="company_name">会社名</label></br>
-                                    <select name="company_name"/>
+                                    <label id="company_id">会社名</label></br>
+                                    <select name="company_id">
                                         <option value="">選択してください</option>
-                                            @foreach($companies as $key => $company)
-                                                <option value="{{ $company->name }}">{{ $company->name }}</option>
+                                            @foreach($companies as $company)
+                                                <option value="{{ $company->id }}">{{ $company->name }}</option>
                                             @endforeach
                                     </select>
                             </div>

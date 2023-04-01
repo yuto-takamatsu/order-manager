@@ -60,7 +60,17 @@ class SaveController extends Controller
     public function update_item(Request $req, $id)
     {
         $b = Item::findOrFail($id);
-        $b->fill($req->except('_token','method'))->save();
+
+        $b->name = $req->name;
+        $b->order_week = $req->order_week;
+        $b->company_id = $req->company_id;
+        $company_name = Company::find($req->get('company_id'))->name;
+        $b->company_name = $company_name;
+        $company_phone_number = Company::find($req->get('company_id'))->phone_number;
+        $b->company_phone_number = $company_phone_number;
+
+        $b->save();
+
         return redirect('home');
     }
 
