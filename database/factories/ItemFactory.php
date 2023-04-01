@@ -18,6 +18,7 @@ class ItemFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
+            'company_id' => $this->faker->numberBetween( $int1 = 1,  $int2 = 25),
             'order_week' => $this->faker->randomElement(['月','火','水','木','金','土','日']),
         ];
     }
