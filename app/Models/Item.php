@@ -12,7 +12,7 @@ class Item extends Model
     public static $rules = [
         'name' => 'required',
         'order_week' => 'required',
-        'company_name' => 'required'
+        'company_id' => 'required'
     ];
 
     use HasFactory;

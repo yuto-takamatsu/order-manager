@@ -34,7 +34,7 @@ class SaveController extends Controller
         $b = new Company();
         $b->fill($req->except('_token'))->save();
         
-        return redirect('save/create_company');
+        return redirect('company_list');
     }
 
     
@@ -44,9 +44,16 @@ class SaveController extends Controller
         $this->validate($req,Item::$rules);
 
         $b = new Item();
-        $b->fill($req->except('_token'))->save();
+        $b->name = $req->name;
+        $b->order_week = $req->order_week;
+        $b->company_id = $req->company_id;
+        $company_name = Company::find($req->get('company_id'))->name;
+        $b->company_name = $company_name;
+        $company_phone_number = Company::find($req->get('company_id'))->phone_number;
+        $b->company_phone_number = $company_phone_number;
+        $b->save();
         
-        return redirect('save/create_item');
+        return redirect('home');
     }
 
     public function edit_item($id)
@@ -60,7 +67,7 @@ class SaveController extends Controller
     public function update_item(Request $req, $id)
     {
         $this->validate($req,Item::$rules);
-        
+
         $b = Item::findOrFail($id);
 
         $b->name = $req->name;
@@ -79,7 +86,7 @@ class SaveController extends Controller
     public function show_item($id)
     {
         $b = Item::findOrFail($id);
-        return view('save.show', compact('b'));
+        return view('save.show_item', compact('b'));
     }
 
     public function destroy_item($id)
@@ -110,4 +117,19 @@ class SaveController extends Controller
         $b->fill($req->except('_token','_method'))->save();
         return redirect('company_list');
     }
+
+    public function show_company($id)
+    {
+        $b = Company::findOrFail($id);
+        return view('save.show_company', compact('b'));
+    }
+
+    public function destroy_company($id)
+    {
+        $b = Company::findOrFail($id);
+        $b->delete();
+        return redirect('company_list');
+    }
+
+
 }

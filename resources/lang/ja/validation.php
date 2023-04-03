@@ -156,6 +156,7 @@ return [
     'attributes' => [
         'name' => '名前',
         'company_name' => '会社名',
+        'company_id' => '会社名',
         'phone_number' => '電話番号',
         'address' => '住所',
         'item_name' => '品目名',

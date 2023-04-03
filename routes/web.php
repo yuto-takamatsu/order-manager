@@ -31,6 +31,8 @@ Route::delete('save/item{id}', 'SaveController@destroy_item');
 Route::get('/company_list', 'SaveController@company_list');
 Route::get('/save/company{id}/edit_company', 'SaveController@edit_company');
 Route::patch('/save/company{id}', 'SaveController@update_company');
+Route::get('/save/company{id}', 'SaveController@show_company');
+Route::delete('/save/company{id}', 'SaveController@destroy_company');
 
 Route::post('/save/create_company', 'SaveController@store_company');
 Route::post('/save/create_item', 'SaveController@store_item');
