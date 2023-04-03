@@ -10,7 +10,7 @@ class Item extends Model
     protected $fillable = ['company_id','name','order_week','company_name','company_phone_number'];
 
     public static $rules = [
-        'item_name' => 'required',
+        'name' => 'required',
         'order_week' => 'required',
         'company_name' => 'required'
     ];

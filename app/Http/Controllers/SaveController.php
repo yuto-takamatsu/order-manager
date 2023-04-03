@@ -59,6 +59,8 @@ class SaveController extends Controller
 
     public function update_item(Request $req, $id)
     {
+        $this->validate($req,Item::$rules);
+        
         $b = Item::findOrFail($id);
 
         $b->name = $req->name;
@@ -74,17 +76,38 @@ class SaveController extends Controller
         return redirect('home');
     }
 
-    public function show($id)
+    public function show_item($id)
     {
         $b = Item::findOrFail($id);
         return view('save.show', compact('b'));
     }
 
-    public function destroy($id)
+    public function destroy_item($id)
     {
         $b = Item::findOrFail($id);
         $b->delete();
         return redirect('home');
     }
 
+    public function company_list()
+    {
+        $companies = Company::all();
+        return view('company_list', compact('companies'));
+    }
+
+    public function edit_company($id)
+    {
+        $b = Company::findOrFail($id);
+        return view('save.edit_company',compact('b'));
+
+    }
+
+    public function update_company(Request $req, $id)
+    {
+        $this->validate($req,Company::$rules);
+
+        $b = Company::findOrFail($id);
+        $b->fill($req->except('_token','_method'))->save();
+        return redirect('company_list');
+    }
 }

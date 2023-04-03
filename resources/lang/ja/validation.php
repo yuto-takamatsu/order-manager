@@ -154,6 +154,7 @@ return [
     */
 
     'attributes' => [
+        'name' => '名前',
         'company_name' => '会社名',
         'phone_number' => '電話番号',
         'address' => '住所',

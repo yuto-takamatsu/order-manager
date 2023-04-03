@@ -19,8 +19,8 @@
                         @csrf
                         <p>
                             <div class="pl-2">
-                                <label id="item_name">品目名</label></br>
-                                <input id="item_name"  name="item_name" type="text" size="30" value="{{ old('name') }}" />
+                                <label id="name">品目名</label></br>
+                                <input id="name"  name="name" type="text" size="30" value="{{ old('name') }}" />
                         </div>
                         </p>
                         <p>

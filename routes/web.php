@@ -23,11 +23,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/save/create_company','SaveController@create_company');
 Route::get('/save/create_item','SaveController@create_item');
 
-Route::get('/save/{id}/edit_item', 'SaveController@edit_item');
-Route::patch('/save/{id}', 'SaveController@update_item');
+Route::get('/save/item{id}/edit_item', 'SaveController@edit_item');
+Route::patch('/save/item{id}', 'SaveController@update_item');
+Route::get('/save/item{id}', 'SaveController@show_item');
+Route::delete('save/item{id}', 'SaveController@destroy_item');
 
-Route::get('/save/{id}', 'SaveController@show');
-Route::delete('save/{id}', 'SaveController@destroy');
+Route::get('/company_list', 'SaveController@company_list');
+Route::get('/save/company{id}/edit_company', 'SaveController@edit_company');
+Route::patch('/save/company{id}', 'SaveController@update_company');
 
 Route::post('/save/create_company', 'SaveController@store_company');
 Route::post('/save/create_item', 'SaveController@store_item');

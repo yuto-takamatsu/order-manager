@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+@if($errors->any())
+    <ul>
+        @foreach($errors->all() as $err)
+        <li class="text-danger">{{ $err }}</li>
+        @endforeach
+    </ul>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('品目情報編集') }}</div>
                 <div class="card-body">
-                    <form action="/save/{{ $b->id }}" method="POST">
+                    <form action="/save/item{{ $b->id }}" method="POST">
                         @csrf
                         @method('PATCH')
                         <p>
@@ -17,7 +24,7 @@
                         </div>
                         </p>
                         <p>
-                            <div class="pl-3">
+                            <div class="pl-2">
                                     <label id="order_week">注文曜日</label></br>
                                     <select name="order_week"/>
                                         <option value="">選択してください</option>
@@ -32,7 +39,7 @@
                             </div>
                         </p>
                         <p>
-                            <div class="pl-4">
+                            <div class="pl-2">
                                     <label id="company_id">会社名</label></br>
                                     <select name="company_id">
                                         <option value="">選択してください</option>

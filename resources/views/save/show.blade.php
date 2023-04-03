@@ -5,7 +5,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('本当に削除しますか？') }}</div>
-                    <form action="/save/{{ $b->id }}" method="POST">
+                    <form action="/save/item{{ $b->id }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <p>
