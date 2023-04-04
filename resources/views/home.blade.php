@@ -8,12 +8,6 @@
                 <div class="card-header">{{ __('本日注文一覧') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <table class="table">
                         <thead>
                             <tr>
@@ -48,12 +42,6 @@
                 <div class="card-header">{{ __('注文一覧') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <table class="table">
                         <thead>
                             <tr>
