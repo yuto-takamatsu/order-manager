@@ -30,6 +30,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
+                        <a class="nav-link" href="/home">{{ __('注文一覧')}}</a>
+                    </ul>
+                    <ul class="navbar-nav">
                         <a class="nav-link" href="/save/create_item">{{ __('品目情報登録')}}</a>
                     </ul>
                     <ul class="navbar-nav">
