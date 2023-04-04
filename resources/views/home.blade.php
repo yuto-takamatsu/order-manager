@@ -42,6 +42,12 @@
                 <div class="card-header">{{ __('注文一覧') }}</div>
 
                 <div class="card-body">
+                    <p>
+                        <form action="/home" method="GET">
+                            <input type="text" name="keyword">
+                            <input type="submit" value="検索">
+                        </form>
+                    </p>
                     <table class="table">
                         <thead>
                             <tr>

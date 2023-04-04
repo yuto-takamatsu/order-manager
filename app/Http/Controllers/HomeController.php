@@ -22,7 +22,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $req)
     {
         $week = [
             '日',
@@ -36,8 +36,20 @@ class HomeController extends Controller
         $date = date('w');
         $today = $week[$date];
         $order_items = Item::where('order_week', $today)->get();
-
-        $items = Item::all();
-        return view('home', compact('order_items','items'));
+        
+        $keyword = $req->input('keyword');
+            if(!empty($keyword)){
+                $items = Item::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('company_name', 'LIKE', "%$keyword%")
+                ->orWhere('company_phone_number', 'LIKE', "%$keyword%")
+                ->orWhere('order_week', 'LIKE', "%$keyword%")
+                ->get();
+            }
+            
+            else{
+                $items = Item::all();
+            }
+            
+        return view('home', compact('order_items','items','keyword'));
     }
 }
