@@ -33,6 +33,7 @@ class HomeController extends Controller
             '金',
             '土'
         ];
+        date_default_timezone_set('Japan');
         $date = date('w');
         $today = $week[$date];
         $order_items = Item::where('order_week', $today)->get();
