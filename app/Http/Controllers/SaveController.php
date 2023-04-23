@@ -58,9 +58,11 @@ class SaveController extends Controller
 
     public function edit_item($id)
     {
+        
         $companies = Company::all();
         $b = Item::findOrFail($id);
-        return view('save.edit_item',compact('companies', 'b'));
+        $select_company_id = Item::findOrFail($id)->company_id;
+        return view('save.edit_item',compact('companies', 'b', 'select_company_id'));
 
     }
 
