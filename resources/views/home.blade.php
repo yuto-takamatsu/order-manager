@@ -44,8 +44,26 @@
                 <div class="card-body">
                     <p>
                         <form action="/home" method="GET">
-                            <input type="text" name="keyword">
-                            <input type="submit" value="検索">
+                            <div class="row justify-content-between">
+                                <div class="col-5">
+                                    <input type="text" class="form-control form-control-sm" name="keyword">
+                                    <div class="col-4 offset-8">
+                                        <input type="submit" class="form-control form-control-sm" value="検索">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <select class="form-select form-select-sm" aria-label="sort_info" name="sort_info">
+                                        <option selected value="">並び変え</option>
+                                        <option value="name">品名</option>
+                                        <option value="company_name">注文先会社名</option>
+                                        <option value="company_phone_number">注文先電話番号</option>
+                                        <option value="order_week">注文曜日</option>
+                                    </select>
+                                        <div class="col-6 offset-6">
+                                            <input type="submit" class="form-control form-control-sm" value="並び変え">
+                                        </div>
+                                </div>
+                            </div>
                         </form>
                     </p>
                     <table class="table">
